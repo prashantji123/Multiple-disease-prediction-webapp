@@ -17,9 +17,9 @@ st.set_page_config(page_title="Health Assistant",
 
 
 # loading the saved models
-diabetes_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Disease databases/saved models/diabetes_model.sav', 'rb'))
-heart_disease_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Disease databases/saved models/heart_disease_model.sav', 'rb'))
-parkinsons_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Disease databases/saved models/parkinsons_model1.sav', 'rb'))
+diabetes_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Disease prediction/saved models/diabetes_model.sav', 'rb'))
+heart_disease_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Disease prediction/saved models/heart_disease_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Disease prediction/saved models/parkinsons_model1.sav', 'rb'))
 
 #sidebar to navigate
 with st.sidebar:
