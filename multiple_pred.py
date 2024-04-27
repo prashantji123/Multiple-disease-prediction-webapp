@@ -4,10 +4,11 @@ Created on Mon Apr 22 23:07:06 2024
 
 @author: KIIT
 """
-
+import os
 import pickle
 import streamlit as st
 from streamlit_option_menu import option_menu
+from PIL import Image
 
 # Set page configuration
 st.set_page_config(page_title="Health Assistant",
@@ -23,17 +24,32 @@ parkinsons_model = pickle.load(open('C:/Users/KIIT/OneDrive/Desktop/Multiple Dis
 
 #sidebar to navigate
 with st.sidebar:
-    selected = option_menu('Multiple Disease Prediction System',
+    selected = option_menu('Multi-Disease Dectector',
 
-                           ['Diabetes Prediction',
+                           options=['Home','Diabetes Prediction',
                             'Heart Disease Prediction',
-                            'Parkinsons Prediction'],
+                            'Parkinsons Prediction','FAQ'],
                            menu_icon='hospital-fill',
-                           icons=['activity', 'heart', 'person'],
+                           icons=['house','activity', 'heart', 'person', 'question-circle-fill'],
                            default_index=0)
 
 
 
+if selected == 'Home':
+
+    # page title
+    st.title('Multi-Disease Dectector')
+    st.write(' ')
+    st.write(' ')
+    
+    img = Image.open("C:/Users/KIIT/OneDrive/Desktop/Multiple Disease prediction/heart1.webp")
+    st.image(
+    img ,
+    
+    width = 650 ,
+    channels = "BGR"
+)
+    
 # Diabetes Prediction Page
 if selected == 'Diabetes Prediction':
 
@@ -249,4 +265,10 @@ if selected == "Parkinsons Prediction":
             parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
     st.success(parkinsons_diagnosis)
+    
+if selected == "FAQ":
+    st.title('Abbreviations')
+    
+    st.text(" MDVP:Fo (Hz)-  Average vocal fundamental frequency \n MDVP:Fhi (Hz)- Maximum vocal fundamental frequency \n MDVP:Flo (Hz)- Minimum vocal fundamental frequency \n MDVP:Jitter(%)- MDVP jitter in percentage \n MDVP:Jitter(Abs)- MDVP absolute jitter in ms \n MDVP:RAP- MDVP relative amplitude perturbation \n MDVP:PPQ - MDVP five-point period perturbation quotient \n Jitter:DDP- Average absolute difference of differences between jitter cycles \n MDVP:Shimmer- MDVP local shimmer \n MDVP:Shimmer(dB)- MDVP local shimmer in dB \n Shimmer:APQ3- Three-point amplitude perturbation quotient \n Shimmer:APQ5- Five-point amplitude perturbation quotient \n MDVP:APQ11- DVP 11-point amplitude perturbation quotient \n Shimmer:DDA- Average absolute differences between the amplitudes of consecutive periods \n NHR- Noise-to-harmonics ratio \n HNR- Harmonics-to-noise ratio \n RPDE- Recurrence period density entropy measure \n D2- Correlation dimension \n DFA- Signal fractal scaling exponent of detrended fluctuation analysis \n Spread1- Two nonlinear measures of fundamental \n Spread2- Frequency variation \n PPE- Pitch period entropy")
+ 
         
